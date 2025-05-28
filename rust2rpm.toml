@@ -1,0 +1,17 @@
+[package]
+cargo-toml-patch-comments = [
+    "switch crypto backend from Nettle to OpenSSL (matching other Sequoia tools)",
+    "drop features for unsupported crypto backends",
+]
+license-files = ["LICENSE.txt"]
+
+[[package.extra-sources]]
+number = 2
+file = "https://gitlab.com/sequoia-pgp/sequoia-keystore/-/raw/server/v0.2.0/LICENSE.txt"
+comments = ["https://gitlab.com/sequoia-pgp/sequoia-keystore/-/merge_requests/109"]
+
+[scripts]
+prep.post = [
+    "cp -pav %{SOURCE2} .",
+]
+
